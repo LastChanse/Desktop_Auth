@@ -103,11 +103,7 @@ public class AuthController {
     private Button loginBtn;
     @FXML
     private void logIn() {
-        if (CodeGenerator.userCodeString.equals("")) { // Если кода нет, то метод не будет выполнен
-            AlertUtils.showAlert("Перед тем как войти, авторизуйтесь", Alert.AlertType.ERROR);
-            return;
-        }
-        if (!textFieldCod.getText().equals(CodeGenerator.userCodeString)) { // Если код неверный, то метод не будет выполнен
+        if (!textFieldCod.getText().equals(CodeGenerator.userCodeString) || CodeGenerator.userCodeString.equals("")) { // Если код неверный или его нет, то метод не будет выполнен
             AlertUtils.showAlert("Неверный код", Alert.AlertType.ERROR);
             return;
         }
